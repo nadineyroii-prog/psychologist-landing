@@ -1,0 +1,10 @@
+<div class="demo-strip"><div class="container">Демонстрационный проект для портфолио <span>Эксперт и условия вымышлены</span></div></div>
+<header class="site-header container">
+  <a class="brand" href="#" aria-label="Анна Ветрова — начало страницы">Анна Ветрова<span>ПСИХОЛОГ · ОНЛАЙН</span></a>
+  <nav class="desktop-nav" aria-label="Основная навигация"><a href="#approach">Подход</a><a href="#meeting">О встречах</a><a href="#price">Стоимость</a></nav>
+  <a class="header-cta" href="#booking">Первая встреча <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu"><summary>Меню</summary><nav aria-label="Мобильная навигация"><a href="#approach">Подход</a><a href="#meeting">О встречах</a><a href="#price">Стоимость</a><a href="#booking">Первая встреча</a></nav></details>
+</header>
+<script>
+  document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => document.querySelector('.mobile-menu')?.removeAttribute('open')));
+</script>

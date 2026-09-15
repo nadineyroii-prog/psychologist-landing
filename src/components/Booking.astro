@@ -1,0 +1,34 @@
+<section class="booking" id="booking" aria-labelledby="booking-title">
+  <div class="container booking-inner">
+    <div class="booking-invitation">
+      <p class="eyebrow">ПЕРВЫЙ ШАГ</p>
+      <h2 id="booking-title">Можно начать с того,<br />что сейчас трудно<br /><span>объяснить.</span></h2>
+      <p class="booking-description">Не обязательно заранее знать все ответы.<br />Для начала достаточно желания поговорить.</p>
+      <button class="button button-light" type="button" id="open-booking">Записаться на первую встречу <span aria-hidden="true">↗</span></button>
+      <p class="demo-note">Демонстрация записи — данные не отправляются</p>
+      <noscript><p>Для просмотра демонстрации включите JavaScript. Реальной записи на этом сайте нет.</p></noscript>
+    </div>
+    <aside class="booking-guide" aria-labelledby="booking-guide-title">
+      <p class="eyebrow">БЕЗ НЕОЖИДАННОСТЕЙ</p>
+      <h3 id="booking-guide-title">Что произойдёт<br /> после нажатия</h3>
+      <ol>
+        <li><span class="booking-step" aria-hidden="true">01</span><div><h4>Вы выберете время</h4><p>Утро, день или вечер — просто чтобы посмотреть, как устроен первый шаг.</p></div></li>
+        <li><span class="booking-step" aria-hidden="true">02</span><div><h4>Завершите демонстрацию</h4><p>Увидите пояснение, что запись не создана. Можно закрыть окно и вернуться на сайт.</p></div></li>
+      </ol>
+      <p class="booking-guide-note">Без имени, телефона и оплаты.<br />Это пример для портфолио, а не реальная запись.</p>
+    </aside>
+  </div>
+</section>
+<dialog id="booking-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><button class="dialog-close" type="button" aria-label="Закрыть демонстрацию">×</button><p class="eyebrow">ДЕМОНСТРАЦИЯ ЗАПИСИ</p><h2 id="dialog-title">Первая встреча</h2><p id="dialog-description">Это пример сценария записи к вымышленному эксперту. Здесь нет реальных свободных мест. Имя, телефон и другие личные данные не нужны.</p><form id="demo-form"><fieldset><legend>Выберите удобную часть дня для примера</legend><label><input type="radio" name="time" value="morning" checked /> Утро <span>09:00–12:00</span></label><label><input type="radio" name="time" value="afternoon" /> День <span>12:00–17:00</span></label><label><input type="radio" name="time" value="evening" /> Вечер <span>17:00–20:00</span></label></fieldset><p class="demo-note">Демонстрационные условия: 50 минут · 4 500 ₽</p><button class="button" type="submit">Завершить демонстрацию <span aria-hidden="true">↗</span></button></form><div id="demo-result" hidden tabindex="-1" role="status"><p class="result-title">Демонстрация завершена</p><p>Вы посмотрели пример первого шага. Запись не создана, данные не отправлены.</p><button class="text-link dialog-done" type="button">Вернуться на сайт <span aria-hidden="true">↗</span></button></div></dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#booking-dialog')!;
+  const form = document.querySelector<HTMLFormElement>('#demo-form')!;
+  const result = document.querySelector<HTMLElement>('#demo-result')!;
+  document.querySelector('#open-booking')?.addEventListener('click', () => {
+    form.hidden = false; result.hidden = true; form.reset(); dialog.showModal(); document.body.classList.add('dialog-open');
+  });
+  dialog.querySelectorAll('.dialog-close, .dialog-done').forEach(button => button.addEventListener('click', () => dialog.close()));
+  dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+  dialog.addEventListener('click', event => { if(event.target === dialog) { const r = dialog.getBoundingClientRect(); if(event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } });
+  form.addEventListener('submit', event => { event.preventDefault(); form.hidden = true; result.hidden = false; result.focus(); });
+</script>

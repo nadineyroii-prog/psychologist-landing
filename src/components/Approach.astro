@@ -1,0 +1,8 @@
+---
+const topics = [
+  ['01', 'От «должен» — к пониманию себя', 'Замечать, откуда берутся требования к себе, какие из них вам помогают, а какие оставляют без сил.'],
+  ['02', 'Границы, в которых есть место вам', 'Исследовать, что мешает отказывать, просить о помощи и говорить о том, что для вас важно.'],
+  ['03', 'Собственный голос среди ожиданий', 'Разбираться в своих желаниях и искать решения, которые учитывают вашу жизнь, ценности и возможности.']
+];
+---
+<section class="section approach" id="approach" aria-labelledby="approach-title"><div class="container"><div class="approach-intro"><p class="eyebrow">02 / НАПРАВЛЕНИЕ РАБОТЫ</p><h2 id="approach-title">Чуть меньше «надо».<br /><span class="accent">Чуть больше себя.</span></h2><p>На консультациях можно остановиться и рассмотреть то, на что в повседневной жизни не хватает времени и внимания.</p></div><div class="topics">{topics.map(([number,title,text]) => <article><span class="topic-number" aria-hidden="true">{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>

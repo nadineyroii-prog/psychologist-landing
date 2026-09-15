@@ -1,0 +1,38 @@
+node_modules/
+dist/
+.astro/
+.qa/
+*.log
+
+# Local environment variables (keep safe templates trackable)
+.env
+.env.*
+!.env.example
+
+# Local secrets and credentials
+.secrets/
+secrets/
+credentials/
+.envrc
+.npmrc
+.netrc
+_netrc
+credentials.json
+credentials.local.*
+secrets.json
+secrets.local.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+id_ecdsa
+id_ecdsa.*
+
+# Local package manager cache
+.pnpm-store/
